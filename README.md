@@ -1,4 +1,193 @@
-# Application
+[Technologies](#Technologies) | [Installation](#installation-guide) | [Usage](#usage) | [Evaluation Evidence](#evaluation-evidence-section) | [GIF Recordings](#gifrecordings) | [Contributors](#contributors) | [License](#license) | [Detailed Instructions](#detailedinstructions) 
+
+# joint_savings
+This is a blockchain-based smart contract application to create a fungible token that is ERC-20 compliant and that will be minted by using a `Crowdsale` contract from the OpenZeppelin Solidity library. The crowdsale contract will manage the entire crowdsale process, allowing users to send ether to the contract and in return receive KAI, or KaseiCoin tokens. The Smart contract is deployed using Remix, Metamask, Ganashe and Solidity by integrating the Ethereum blockchain network into the application. 
+
+## Technologies
+
+This project leverages solidity ^0.5 along with the following Technologies:
+
+* [Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=DX_841432) - Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. 
+
+* [Ganache](https://trufflesuite.com/ganache/) - A program that allows you to quickly set up a local blockchain, which you can use to test and develop smart contracts. 
+
+* [REMIX IDE](https://remix-project.org/) - Remix IDE allows developing, deploying and administering smart contracts for Ethereum like blockchains.
+
+* [Solidity](https://docs.soliditylang.org/en/v0.8.14/) - Solidity is an object-oriented, high-level language for implementing smart contracts. Smart contracts are programs which govern the behaviour of accounts within the Ethereum state.
+
+
+---
+
+## Installation Guide
+
+You will need Solidity version 0.5.0 or above and gitbash/terminal on your computer, along with other supporting packages as mentioned below. 
+
+Please follow instructions from the below link to install python 3.7 or above on your computer
+
+[To install Python, follow instructions from this link](https://www.python.org/downloads/)
+
+[To install Git Bash, follow instructions from this link](https://github.com/git-guides/install-git)
+
+[To install Anaconda, follow instructions from this link ](https://docs.anaconda.com/anaconda/install/)
+
+[To install Visual Studio Code, follow instructions from this link ](https://code.visualstudio.com/docs/setup/setup-overview)
+
+[To install Ganache, follow instructions from this link to download and install ](https://trufflesuite.com/ganache/)
+
+[To install Microsoft Visual C++ Build Tools in Windows(dependency for Web3.py in windows), follow instructions below](https://visualstudio.microsoft.com/downloads/)
+
+    * [Go to](https://visualstudio.microsoft.com/downloads/)
+    * Scroll down the page, and then click "Tools for Visual Studio 2019" to reveal the options.
+    * Download the "Build Tools for Visual Studio 2019" package.
+    * Run the package file and select the C++ Build Tools option. Then click Install. The installation process takes about 15 minutes.
+
+
+```python
+# install conda dev environment and activate it
+    conda update conda
+    conda create -n dev python=3.7 anaconda
+    conda activate dev
+
+# Install Web3.py library (Optional)
+    conda activate dev
+    pip install web3==5.17
+
+# Install ethereum-tester library (Optional)
+    conda activate dev
+    pip install eth-tester==0.5.0b3
+
+# Install mnemonic package (Optional)
+    conda activate dev
+    pip install mnemonic
+
+# Install bip44 package (Optional)
+    conda activate dev
+    pip install bip44
+
+
+```
+
+---
+
+
+## Usage
+
+[Use this Simple Unit Converter for converstion between Ether, Gwei or Wei](https://eth-converter.com/)
+
+To use the KaseiCoin Smart Contract, clone the repository and run the above commands in gitbash as applicable,
+
+```git
+git clone https://github.com/sidbetatester/KaseiCoin.git
+
+cd KaseiCoin
+
+# 2. To launch the Remix web IDE, use the following link in the browser
+
+https://remix.ethereum.org/
+
+# 3. On the resulting webpage, Create the .sol file for KaseiCoin.sol and KaseiCoinCrowdsale.sol that you downloaded from github)
+
+# 4. Use 0.5.0 or above Solidity Compiler, click Compile
+
+```
+
+## Evaluation Evidence section 
+
+### 5. Configure a local blockchain with Remix, MetaMask, and Ganache as shown below.
+
+![Ganache_Local_Blockchain_Workspace](Images/Ganache_Local_Blockchain_Workspace.png)
+
+![Ganache_Local_Blockchain_Private_Key](Images/Ganache_Local_Blockchain_Private_Key.png)
+
+![Ganache_Local_Blockchain_Address_Import_to_Metamask](Images/Ganache_Local_Blockchain_Address_Import_to_Metamask.png)
+
+![Ganache_Local_Blockchain_Metamask_Config](Images/Ganache_Local_Blockchain_Metamask_Config.png)
+    
+    
+### 6. In the Deploy & Run Transactions Section, choose 'Injected_Web3 VM' environment, and click 'Deploy'
+![Config_Remix_Injected_Web3_with_Metamask_Click_Connect](Images/Config_Remix_Injected_Web3_with_Metamask_Click_Connect.png)
+![Config_Remix_Injected_Web3_with_Metamask](Images/Config_Remix_Injected_Web3_with_Metamask.png)
+
+
+### 7. Create the KaseiCoin Token Contract
+![Step_1_Create_KaseiCoin_Token_Contract_and_Compile](Images/Step_1_Create_KaseiCoin_Token_Contract_and_Compile.png)
+
+### 8. Create the KaseiCoin Crowdsale Contract
+![Step_2_Create_KaseiCoin_Crowdsale_Contract_and_Compile](Images/Step_2_Create_KaseiCoin_Crowdsale_Contract_and_Compile.png)
+
+### 9. Create the KaseiCoin Deployer Contract
+![Step_3_Create_KaseiCoin_Deployer_Contract_and_Compile](Images/Step_3_Create_KaseiCoin_Deployer_Contract_and_Compile.png)
+
+### 10. Deploy the Crowdsale to a Local Blockchain: Steps to deploy and utilize the KaseiCoin contract
+
+### 1. To deploy the KaseiCoinCrowdsaleDeployer contract
+    - Select the KaseiCoinCrowdsaleDeployer contract from the contract dropdown menu and fill in the Deploy Section as shown below; 
+        Name: KaseiCoin
+        Symbol: KAI 
+        Wallet: Any Address, eg: 0xf627E0Ef9ce129E7793080f9Ca3299a48ca934dC or 0xA690DbBAfBD2e8d7ba4e5c1a0e6b7fD32A5209A0
+    (wallet that will get paid all of the ether raised by the crowdsale contract)
+Click Transact and then Confirm the transaction on the Metamask Wallet pop-up 
+The Deployer Contract creates and launches Crowdsale and KaseiCoin contracts 
+
+### 2. To link the Crowdsale Contract, click the Crowdsale contract in the deployment pane and copy the address
+    - Select the Crowdsale contract from the contract dropdown menu and paste the address in the 'At Address' Text Bar; 
+    - Click 'At Address' and scroll down to see the contract functions
+
+### 3. To link the KaseiCoin Contract, click the KaseiCoin contract in the deployment pane and copy the address
+    - Select the KaseiCoin contract from the contract dropdown menu and paste the address in the 'At Address' Text Bar; 
+    - Click 'At Address' and scroll down to see the contract functions
+
+### 4. Test the functionality of the crowdsale by using test accounts to buy new tokens and then checking the balances associated with those accounts.
+    - 0xf627E0Ef9ce129E7793080f9Ca3299a48ca934dC : 15
+    - 0xA690DbBAfBD2e8d7ba4e5c1a0e6b7fD32A5209A0 : 10
+
+### 5. After purchasing tokens with one or more test accounts, view the total supply of minted tokens and the amount of wei 
+that has been raised in the crowdsale contract.
+    - Total Supply of minted Tokens and the amount of wei raised in crowdsale contract should be 25 in our example
+   
+## GIF_Recordings
+![Test_Functionality_1](Images/Test_Functionality_1.gif)
+![Test_Functionality_2](Images/Test_Functionality_2.gif)
+
+
+
+## Contributors
+
+Siddharth Venkumahanti
+[linkedin](https://www.linkedin.com/in/siddharthvenkumahanti/)
+
+
+---
+
+
+## License
+
+## MIT License
+
+Copyright (c) [2022] [Siddharth Venkumahanti]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+![MIT License](Images/MIT_License.png)
+
+
+# Detailed_Instructions
 
 ## Challenge: Martian Token Crowdsale
 
